@@ -13,7 +13,7 @@ import MaplibreGeocoder, {
   MaplibreGeocoderFeatureResults,
 } from "@maplibre/maplibre-gl-geocoder";
 
-import "@maplibre/maplibre-gl-geocoder/dist/maplibre-gl-geocoder.css";
+import "./geocoder.css";
 
 type GeocoderControlProps = Omit<
   MaplibreGeocoderOptions,
@@ -73,7 +73,7 @@ export default function GeocoderControl(props: GeocoderControlProps) {
       const ctrl = new MaplibreGeocoder(geocoderApi, {
         ...props,
         marker: false,
-        placeholder: "Hi",
+        placeholder: "Adresse ou numéro de lot",
         countries: "Canada",
         maplibregl: mapLib as any,
       });

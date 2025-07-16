@@ -14,7 +14,7 @@ export default function NotFound() {
     <section className="">
       <div className="container flex items-center min-h-screen px-6 py-12 mx-auto">
         <div>
-          <p className="text-8xl font-black text-primary">404</p>
+          <p className="text-8xl font-semibold text-primary">404</p>
           <h1 className="mt-3 text-2xl font-semibold md:text-3xl">
             Page introuvable
           </h1>
