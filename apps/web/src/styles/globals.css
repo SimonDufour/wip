@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@import "@metrica/tailwind-config";
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  :where(button, [role="button"]):not([disabled]) {
+    cursor: pointer;
+  }
+}
