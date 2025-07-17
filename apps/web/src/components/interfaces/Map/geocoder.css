@@ -19,6 +19,7 @@
   transition:
     width 0.25s,
     min-width 0.25s;
+  outline: 1px solid lightgray;
 }
 
 .maplibregl-ctrl-geocoder--input {
@@ -28,8 +29,7 @@
   background-color: transparent;
   margin: 0;
   height: 50px;
-  color: #404040; /* fallback */
-  color: rgba(0, 0, 0, 0.75);
+  color: darkgray;
   padding: 6px 45px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -41,11 +41,10 @@
 }
 
 .maplibregl-ctrl-geocoder--input:focus {
-  color: #404040; /* fallback */
-  color: rgba(0, 0, 0, 0.75);
-  outline: 0;
+  color: dimgray;
+  outline: 1.5px solid darkgray;
+  border-radius: 8px;
   box-shadow: none;
-  outline: thin dotted;
 }
 
 .maplibregl-ctrl-geocoder .maplibregl-ctrl-geocoder--pin-right > * {

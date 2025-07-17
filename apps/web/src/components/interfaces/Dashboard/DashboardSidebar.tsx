@@ -56,7 +56,11 @@ export function DashboardSidebar({
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" className="hover:bg-sidebar ">
+            <SidebarMenuButton
+              size="lg"
+              className="
+              :bg-sidebar "
+            >
               <div className="flex items-center gap-3 text-primary font-bold">
                 <Icons.Logo size={30} />
                 <span className="text-2xl">Metrica</span>

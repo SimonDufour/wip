@@ -1,4 +1,5 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useMemo, useState } from "react";
+
 import {
   FullscreenControl,
   GeolocateControl,
@@ -20,6 +21,7 @@ import { BASEMAPS, getBasemapUrl, getLayerData } from "@/lib/layers";
 import { ProjectParcelPanel } from "../Project/Parcel/ProjectParcelPanel";
 import { LoadingSpinner } from "@metrica/ui/components/loading-spinner";
 import { TabKind } from "@/types/tabs";
+import MapTooltip from "@metrica/ui/components/map-tooltip";
 
 function DeckGLOverlay(props: DeckProps) {
   const overlay = useControl<MapboxOverlay>(
@@ -48,7 +50,7 @@ function formatTooltip(object: MVTLayerPickingInfo["object"]) {
     return "No properties";
   }
 
-  const style = "font-family: sans-serif; font-size: 12px; z-index: 10;";
+  const style = "font-family: Geist; font-size: 12px; z-index: 10;";
   const content = entries
     .map(([key, value]) => `<b>${key}:</b> ${value}`)
     .join("<br/>");
@@ -64,6 +66,7 @@ export function MapContainer({
   initialViewState?: MapViewState;
 }) {
   const { project, openSidePanel, selectTab } = useProjectStore();
+  const [hoverInfo, setHoverInfo] = useState<PickingInfo | null>(null);
 
   const activeLayerKinds = project?.layers;
 
@@ -108,9 +111,10 @@ export function MapContainer({
       <ScaleControl style={{ background: "none" }} />
       <DeckGLOverlay
         layers={layersToRender}
-        getTooltip={({ object }) => formatTooltip(object)}
+        onHover={setHoverInfo}
         onClick={handleClick}
       />
+      <MapTooltip hoverInfo={hoverInfo} />
     </Map>
   );
 }

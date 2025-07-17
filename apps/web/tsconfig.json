@@ -1,6 +1,9 @@
 {
   "extends": "@metrica/typescript-config/nextjs.json",
   "compilerOptions": {
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],

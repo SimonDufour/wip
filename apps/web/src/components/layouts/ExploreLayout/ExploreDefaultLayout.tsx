@@ -60,7 +60,7 @@ function ExploreDefaultLayout() {
               id="panel-left"
               className="hidden md:block min-w-64 bg-sidebar"
             >
-              <div className="flex items-center justify-between p-2 border-b">
+              <div className="flex items-center justify-between p-2 pl-4 pr-4 text-primary">
                 <span className="font-medium text-lg">{currentTab.title}</span>
                 <Button
                   variant="ghost"

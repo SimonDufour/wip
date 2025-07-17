@@ -44,7 +44,7 @@ export const ProjectSidebar = ({ ...props }: SidebarProps) => {
     <AnimatePresence>
       <SidebarMotion
         {...props}
-        transition={{ delay: 0.2, duration: 0.2 }}
+        transition={{ delay: 0.0, duration: 0.0 }}
         collapsible="icon"
         variant="sidebar"
         onMouseEnter={() => {
@@ -118,14 +118,16 @@ const NavContent = () => {
 
   return (
     <SidebarMenu>
-      <SidebarGroup className="gap-3">
+      <SidebarGroup>
         {TABS.map((route) => (
-          <SidebarMenuItem key={`tab-${route.tab.title}`}>
+          <SidebarMenuItem
+            key={`tab-${route.tab.title}`}
+            className="py-2 hover:bg-muted hover:rounded-lg cursor-default text-foreground"
+          >
             <SidebarMenuButton
               asChild
               className={cn(
-                currentTab === route.tab &&
-                  "bg-secondary hover:bg-secondary font-medium",
+                currentTab === route.tab && "bg-secondary hover:bg-secondary",
                 "cursor-grab",
               )}
               onClick={() => {
@@ -133,7 +135,7 @@ const NavContent = () => {
                 openSidePanel(React.createElement(route.content));
               }}
             >
-              <div>
+              <div className="h-4 hover:px-4 cursor-pointer">
                 {React.createElement(route.icon)}
                 {route.tab.title}
               </div>
