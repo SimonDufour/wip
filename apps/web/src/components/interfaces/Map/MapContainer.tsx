@@ -86,6 +86,7 @@ export function MapContainer({
     return <LoadingSpinner />;
   }
 
+  /* ajouter le check pour le project panel pour conditional tooltip rendering */
   const handleClick = (info: PickingInfo) => {
     switch (info.layer?.id) {
       case "parcels":
@@ -111,8 +112,10 @@ export function MapContainer({
       <ScaleControl style={{ background: "none" }} />
       <DeckGLOverlay
         layers={layersToRender}
-        onHover={setHoverInfo}
-        onClick={handleClick}
+        onClick={(info: PickingInfo) => {
+          handleClick(info);
+          setHoverInfo(info);
+        }}
       />
       <MapTooltip hoverInfo={hoverInfo} />
     </Map>

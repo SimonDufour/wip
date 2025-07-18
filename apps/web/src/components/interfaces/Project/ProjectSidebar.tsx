@@ -128,14 +128,15 @@ const NavContent = () => {
               asChild
               className={cn(
                 currentTab === route.tab && "bg-secondary hover:bg-secondary",
-                "cursor-grab",
+                "cursor-pointer",
+                "hover:pl-4",
               )}
               onClick={() => {
                 selectTab(route.tab);
                 openSidePanel(React.createElement(route.content));
               }}
             >
-              <div className="h-4 hover:px-4 cursor-pointer">
+              <div>
                 {React.createElement(route.icon)}
                 {route.tab.title}
               </div>
